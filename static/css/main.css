@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a3a52 0%, #0d1f2d 100%);
+    padding: 20px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar-brand {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.sidebar-brand h4 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.sidebar-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.sidebar-nav {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin: 0;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left-color: #0dcaf0;
+    padding-left: 25px;
+}
+
+.sidebar-nav a i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.header h1 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header i {
+    margin-right: 15px;
+    font-size: 2rem;
+}
+
+.main-content {
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 40px;
+    min-height: calc(100vh - 70px);
+}
+
+.welcome-section {
+    margin-bottom: 50px;
+}
+
+.welcome-section h2 {
+    color: #0d47a1;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.welcome-section p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.action-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+    border-top: 4px solid #0d47a1;
+    cursor: pointer;
+}
+
+.action-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.action-card i {
+    font-size: 3rem;
+    color: #0d47a1;
+    margin-bottom: 20px;
+}
+
+.action-card h3 {
+    color: #0d47a1;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.action-card p {
+    color: #999;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.action-card .btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-card .btn-primary {
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+    color: white;
+    border: none;
+}
+
+.action-card .btn-primary:hover {
+    background: linear-gradient(135deg, #0a3d91 0%, #1257b0 100%);
+    font-size: 1.3rem;
+    transform: scale(1.02);
+}
+
+        /* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .header {
+        left: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    .header i {
+        font-size: 1.5rem;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .header {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}

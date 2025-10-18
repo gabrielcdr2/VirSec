@@ -1,97 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-image: url('img/virtual_school_background_colored_black_objects.webp');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        label{
-            color: #444;
-        }
-        
-        input{
-            border: none;
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-        }
-
-        input[type="text"],
-        input[type="password"]{
-            width: 400px;
-        }
-        .form-container {
-            background-color:  #fdfdfd;
-            width: 25%;
-            margin: 0 auto;
-            position: relative;
-            bottom: -132px;
-        }
-        .form-title {
-            color: #222;
-            position: relative;
-            bottom: -42px;
-            font-size: 45px;
-            text-align: center;
-            margin: 30px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #222;
-        }
-        .required-field {
-            color: red;
-        }
-        .block {
-            display: block;
-        }
-        .form-body {
-            padding: 30px;
-        }
-
-        .form-body input{
-            margin-bottom: 10px;
-        }
-        .btn-entrar {
-            position: relative;
-            right: -128px;
-            margin-top: 15px;
-            background-color: rgb(54, 54, 54);
-            color: #FFF;
-            border: 2px solid transparent;
-            width: 150px;
-            height: 50px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.5s;
-        }
-
-        .btn-entrar:hover {
-            background-color: #b6b6b6;
-            border-color: rgb(109, 108, 108);
-            color: rgb(3, 3, 3);
-        }
-
-        .btn-entrar a {
-            text-decoration: none;
-            color: #FFF; 
-            display: block; 
-            line-height: 50px; 
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>VirSec</title>
 </head>
 <body>
