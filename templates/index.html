@@ -35,8 +35,8 @@
         <main class="main-content">
             <!-- Mensagem -->
             <section class="welcome-section">
-                <h2>Bem-vindo ao Sistema de Gerenciamento</h2>
-                <p>Gerencie alunos, turmas, boletins e notas de forma simples e eficiente.</p>
+                <h2>Bem-vindo ao VirSec</h2>
+                <p>Desenvolvido por: Fabrício Marins, Thaina Santana, Gabriel Campos e Yago Cesar.</p>
             </section>
 
             <!-- Cards com links para cadastros -->
@@ -46,9 +46,12 @@
                     <i class="bi bi-person-plus-fill"></i>
                     <h3>Cadastrar Alunos</h3>
                     <p>Adicione novos alunos ao sistema de forma rápida e organizada.</p>
-                    <button class="btn btn-primary">
-                        <i class="bi bi-plus-circle"></i> Cadastrar
-                    </button>
+                    <a href="{% url 'alunos:aluno_cadastrar' %}">
+                        <button class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i> Cadastrar
+                        </button>
+                    </a>
+                    
                 </div>
 
                 <!-- Cadastrar Disciplinas -->
