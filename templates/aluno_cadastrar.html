@@ -5,9 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VirSec</title>
     <style> 
-        h1 {
-            color: red;
+        * {
+            margin: 0;
+            padding: 0;
         }
+
+        body {
+            font-family: 'Times New Roman';
+        }
+
+        h1,
+        h2,
+        h3 {
+          color: #333;  
+        }
+
+        p, label {
+           color: #3f3f3f;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="email"],
+        textarea {
+            width: 400px;
+        }
+        
+        .block {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -21,32 +55,49 @@
             <form action="">
                 <h2 class="form-title">Dados Pessoais</h2>
                 <div class="box-input">
-                    <label for="name">Nome<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="name" id="name" placeholder="Digite o nome" required>
-                    <label for="age">Idade<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="age" id="age" placeholder="Digite a idade" required>
-                    <label for="adress">Endereço<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="adress" id="adress" placeholder="Digite o endereço" required>
-                    <label for="cpf">CPF<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="cpf" id="cpf" placeholder="Digite o CPF" required>
-                    <label for="family">Filiação 1<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="family" id="family" placeholder="Digite o nome do Pai" required>
-                    <label for="family">Filiação 2<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="family" id="family" placeholder="Digite o nome da Mãe" required>
+                            <label for="name">Nome<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="name" id="name" placeholder="Digite o nome" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="age">Idade<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="age" id="age" placeholder="Digite a idade" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="email">Email<span class="required-field">*</span></label>
+                            <input type="email" class="block" name="email" id="email" placeholder="Digite o E-mail" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="adress">Endereço<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="adress" id="adress" placeholder="Digite o endereço" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="cpf">CPF<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="cpf" id="cpf" placeholder="Digite o CPF" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="family">Filiação 1<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="family" id="family" placeholder="Digite o nome do Pai" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="family">Filiação 2<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="family" id="family" placeholder="Digite o nome da Mãe" required>
+                        </div>
+                        <div class="box-input">
+                            <label for="class">Turma<span class="required-field">*</span></label>
+                            <input type="text" class="block" name="class" id="class" placeholder="Turma do Aluno" required>
+                        </div>
+                        <div class="box-input">
+                            <p>Ano de Escolaridade<span class="required-field">*</span></p>
+                            <input type="radio" id="third-year" name="year-school">
+                            <label for="year-school">3º Ano</label>
+                            <input type="radio" id="fourth-year" name="year-school">
+                            <label for="year-school">4º Ano</label>
+                            <input type="radio" id="fifth-year" name="year-school">
+                            <label for="year-school">5º Ano</label>
+                        </div>
+            </form>
+        </div>        
 
-                </div>
-                <div class="box-input">
-                    <p>Ano de Escolaridade<span class="required-field">*</span></p>
-                    <input type="radio" id="third-year" name="year-school">
-                    <label for="year-school">3º Ano</label>
-                    <input type="radio" id="fourth-year" name="year-school">
-                    <label for="year-school">4º Ano</label>
-                    <input type="radio" id="fifth-year" name="year-school">
-                    <label for="year-school">5º Ano</label>
-                </div>
-                <div class="box-input">
-
-                </div>
                 
                 <!-- <label for="year-school">Ano de escolaridade<span class="required-field">*</span></label>
                 <input type="text" class="block" name="name" id="name" placeholder="Digite o nome" required> -->
