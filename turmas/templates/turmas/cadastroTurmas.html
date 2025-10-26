@@ -1,0 +1,8 @@
+<h1>Cadastrar Turmas</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Salvar</button>
+</form>
+
+<a href="{% url 'index' %}">Voltar</a>
