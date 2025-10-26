@@ -6,4 +6,4 @@ class AlunoCreateView(CreateView):
     model = Aluno
     fields = '__all__'
     template_name = 'alunos/cadastroAlunos.html'
-    success_url = reverse_lazy('alunos:aluno_list')
+    success_url = reverse_lazy('index')
