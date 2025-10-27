@@ -1,28 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>VirSec - Login</title>
+    <!-- Assumindo que você usa Bootstrap e os ícones -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>VirSec</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Link para o CSS de login que criaremos -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
 </head>
 <body>
-    <div class="container">
-        <h2 class="form-title">Bem vindo à Secretaria Virtual</h2>
-        <div class="form-container">
-            <form>
-                <div class="form-body">
-                    <label for="login">Login<span class="required-field">*</span></label>
-                    <input type="text" class="block" name="login" id="login" placeholder="Digite seu CPF" required>
-                    <label for="password">Senha<span class="required-field">*</span></label>
-                    <input type="password" class="block" name="password" id="password" placeholder="Digite sua senha" required>
-                    <a href="#">Esqueceu a senha?</a>
-                    <br>
-                    <br>
-                    <button class="btn-entrar"><a href="home.html">Entrar</a></button> 
-                    <br>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-area">
+                <i class="bi bi-mortarboard"></i>
+                <h2>VirSec</h2>
+                <p>Gerenciamento Escolar</p>
+            </div>
+            
+            <form method="POST">
+                {% csrf_token %}
+                <h3 class="card-title">Acesso ao Sistema</h3>
+
+                <!-- Campo de Usuário/Email -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Matrícula</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
                 </div>
+
+                <!-- Campo de Senha -->
+                <div class="mb-4">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <!-- Botão de Login -->
+                <button type="submit" class="btn btn-primary w-100 login-btn">
+                    <i class="bi bi-box-arrow-in-right"></i> Entrar
+                </button>
+
+                <!-- Área para mensagens de erro do Django -->
+                {% if form.errors %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        Usuário ou senha inválidos.
+                    </div>
+                {% endif %}
             </form>
         </div>
     </div>

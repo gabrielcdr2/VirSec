@@ -1,93 +1,77 @@
-*{
-    margin: 0;
-    padding: 0;
+/* Cores baseadas no seu dashboard */
+:root {
+    --primary-color: #007bff; /* Azul primário */
+    --secondary-color: #0d47a1; /* Azul escuro do sidebar */
+    --card-bg: #ffffff;
+    --body-bg: #f8f9fa; /* Fundo claro */
 }
 
 body {
-    background-image: url('img/virtual_school_background_colored_black_objects.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: Arial;
+    background-color: var(--body-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-h1, h2, h3 {
-    color: #333;
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
 }
 
-label{
-    color: #444;
-}
-        
-input{
-    border: none;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
-input[type="text"],
-input[type="password"]{
-    width: 400px;
-}
-
-.form-container {
-    background-color:  #fdfdfd;
-    width: 25%;
-    margin: 0 auto;
-    position: relative;
-    bottom: -132px;
-}
-
-.form-title {
-    color: #222;
-    position: relative;
-    bottom: -42px;
-    font-size: 45px;
-    text-align: center;
-    margin: 30px;
-    padding-bottom: 40px;
-    border-bottom: 2px solid #222;
-}
-
-.required-field {
-    color: red;
-}
-
-.block {
-    display: block;
-}
-
-.form-body {
+.login-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
+    text-align: center;
 }
 
-.form-body input{
-    margin-bottom: 10px;
+.logo-area {
+    margin-bottom: 25px;
+    color: var(--secondary-color);
 }
 
-.btn-entrar {
-    position: relative;
-    right: -128px;
-    margin-top: 15px;
-    background-color: rgb(54, 54, 54);
-    color: #FFF;
-    border: 2px solid transparent;
-    width: 150px;
-    height: 50px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.5s;
+.logo-area i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.btn-entrar:hover {
-    background-color: #b6b6b6;
-    border-color: rgb(109, 108, 108);
-    color: rgb(3, 3, 3);
+.logo-area h2 {
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
-.btn-entrar a {
-    text-decoration: none;
-    color: #FFF; 
-    display: block; 
-    line-height: 50px; 
+.logo-area p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.login-btn {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    font-weight: 600;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #003366; /* Um tom mais escuro */
+    border-color: #003366;
+}
+
+/* Ajustes para o formulário */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
