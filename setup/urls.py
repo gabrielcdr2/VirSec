@@ -10,6 +10,7 @@ urlpatterns = [
     path('dashboard/', IndexView.as_view(), name='index'), 
     path('alunos/', include('alunos.urls')),
     path('turmas/', include('turmas.urls')),
+    path('professores/', include('professores.urls')),
 ]
 
 if settings.DEBUG:

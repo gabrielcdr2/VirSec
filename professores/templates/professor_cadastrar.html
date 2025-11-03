@@ -1,0 +1,25 @@
+<!-- professores/templates/professores/professor_cadastrar.html -->
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Cadastrar Novo Professor</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Renderiza o formulário do Django -->
+        {{ form.as_p }} 
+        
+        <button type="submit" class="btn btn-success">
+            <i class="bi bi-save"></i> Salvar Professor
+        </button>
+    </form>
+
+    <!-- Link para voltar ao dashboard ou lista de professores -->
+    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">
+        <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+</div>
+{% endblock content %}

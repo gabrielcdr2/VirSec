@@ -7,6 +7,8 @@ class Aluno(models.Model):
     idade = models.IntegerField()
     nascimento = models.DateField()
     data_cadastro = models.DateTimeField(auto_now_add=True)
+    turma = models.ForeignKey('turmas.Turma', on_delete=models.CASCADE, null=True, blank=True, related_name='alunos')
+
 
     def __str__(self):
         return self.nome
