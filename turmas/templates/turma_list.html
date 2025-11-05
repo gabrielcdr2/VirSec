@@ -1,0 +1,70 @@
+<!-- turmas/templates/turmas/turma_list.html - Versão Limpa -->
+
+{% extends "base.html" %} 
+{% load static %}
+
+{% block header_title %}Lista de Turmas{% endblock header_title %}
+
+{% block content %}
+    <!-- Tabela de Turmas -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold">Turmas Cadastradas</h6>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                {% if turmas %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">ID</th>
+                            <th style="width: 20%;">Nome da Turma</th>
+                            <th style="width: 25%;">Professor Responsável</th>
+                            <th style="width: 25%;">Disciplina Principal</th>
+                            <th style="width: 10%; text-align: center;">Alunos</th>
+                            <th style="width: 15%; text-align: center;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for turma in turmas %}
+                        <tr>
+                            <td>{{ turma.id }}</td>
+                            <td>
+                                <a href="{% url 'turmas:turma_detail' pk=turma.pk %}" class="text-primary font-weight-bold">
+                                    {{ turma.nome }}
+                                </a>
+                            </td>
+                            <td>{{ turma.professor.nome }}</td>
+                            <td>{{ turma.disciplina.nome }}</td>
+                            <td style="text-align: center;">
+                                <span class="badge bg-success rounded-pill">{{ turma.num_alunos }}</span>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="#" class="btn btn-sm btn-outline-info" title="Editar Turma">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-danger" title="Excluir Turma">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-warning m-3" role="alert">
+                    <i class="bi bi-exclamation-triangle"></i> Nenhuma turma cadastrada. 
+                    <a href="{% url 'turmas:turma_cadastrar' %}">Cadastre a primeira turma aqui.</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Botão de Cadastro (Movido para o topo do bloco content) -->
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{% url 'turmas:turma_cadastrar' %}" class="btn btn-primary shadow-sm">
+            <i class="bi bi-plus-circle"></i> Cadastrar Nova Turma
+        </a>
+    </div>
+{% endblock content %}

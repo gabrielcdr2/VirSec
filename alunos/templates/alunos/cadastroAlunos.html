@@ -1,8 +1,86 @@
-<h1>Cadastrar Alunos</h1>
-<form method="POST">
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit">Salvar</button>
-</form>
+<!-- alunos/templates/alunos/aluno_cadastrar.html -->
 
-<a href="{% url 'index' %}">Voltar</a>
+{% extends "base.html" %}
+{% load static %}
+
+{% block header_title %}Cadastrar Novo Aluno{% endblock header_title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold">Formulário de Cadastro</h6>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.matricula.id_for_label }}" class="form-label">{{ form.matricula.label }}</label>
+                        {{ form.matricula }}
+                        {% if form.matricula.errors %}
+                            <div class="text-danger small mt-1">{{ form.matricula.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.nome.id_for_label }}" class="form-label">{{ form.nome.label }}</label>
+                        {{ form.nome }}
+                        {% if form.nome.errors %}
+                            <div class="text-danger small mt-1">{{ form.nome.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.cpf.id_for_label }}" class="form-label">{{ form.cpf.label }}</label>
+                        {{ form.cpf }}
+                        {% if form.cpf.errors %}
+                            <div class="text-danger small mt-1">{{ form.cpf.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.idade.id_for_label }}" class="form-label">{{ form.idade.label }}</label>
+                                {{ form.idade }}
+                                {% if form.idade.errors %}
+                                    <div class="text-danger small mt-1">{{ form.idade.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.nascimento.id_for_label }}" class="form-label">{{ form.nascimento.label }}</label>
+                                {{ form.nascimento }}
+                                {% if form.nascimento.errors %}
+                                    <div class="text-danger small mt-1">{{ form.nascimento.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO: Turma -->
+                    <div class="mb-3">
+                        <label for="{{ form.turma.id_for_label }}" class="form-label">{{ form.turma.label }}</label>
+                        {{ form.turma }}
+                        {% if form.turma.errors %}
+                            <div class="text-danger small mt-1">{{ form.turma.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Salvar Aluno
+                        </button>
+                        <a href="{% url 'alunos:aluno_list' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Voltar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
