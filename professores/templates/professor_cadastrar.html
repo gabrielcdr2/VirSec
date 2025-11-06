@@ -1,10 +1,12 @@
 <!-- professores/templates/professores/professor_cadastrar.html -->
 
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2>Cadastrar Novo Professor</h2>
+    <!-- Título dinâmico: Se 'object' existe, estamos editando. Caso contrário, estamos cadastrando. -->
+    <h2>{% if object %}Editar Professor: {{ object.nome }}{% else %}Cadastrar Novo Professor{% endif %}</h2>
 
     <form method="POST">
         {% csrf_token %}
@@ -13,13 +15,14 @@
         {{ form.as_p }} 
         
         <button type="submit" class="btn btn-success">
-            <i class="bi bi-save"></i> Salvar Professor
+            <!-- Texto do botão dinâmico -->
+            <i class="bi bi-save"></i> {% if object %}Salvar Alterações{% else %}Salvar Professor{% endif %}
         </button>
     </form>
 
-    <!-- Link para voltar ao dashboard ou lista de professores -->
-    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">
-        <i class="bi bi-arrow-left"></i> Voltar
+    <!-- Link para voltar à lista de professores -->
+    <a href="{% url 'professores:professor_list' %}" class="btn btn-secondary mt-3">
+        <i class="bi bi-arrow-left"></i> Voltar para a Lista
     </a>
 </div>
 {% endblock content %}

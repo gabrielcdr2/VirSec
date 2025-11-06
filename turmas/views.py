@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.db.models import Count
 from django.urls import reverse_lazy
 from .models import Turma
@@ -9,7 +9,7 @@ class TurmaCreateView(CreateView):
     model = Turma
     fields = '__all__'
     template_name = 'turma_cadastrar.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('turmas:turma_list')
 
 
 class TurmaListView(ListView):
@@ -43,3 +43,13 @@ class TurmaDetailView(DetailView):
         
         return context
 
+class TurmaUpdateView(UpdateView):
+    model = Turma
+    fields = '__all__'
+    template_name = 'turma_cadastrar.html' # Reutiliza o template de cadastro
+    success_url = reverse_lazy('turmas:turma_list')
+
+class TurmaDeleteView(DeleteView):
+    model = Turma
+    template_name = 'turma_confirm_delete.html' # Novo template de confirmação
+    success_url = reverse_lazy('turmas:turma_list') 

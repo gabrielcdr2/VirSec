@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <!-- ... (Estrutura de card) ... -->
+    <p>Você tem certeza que deseja excluir a turma **{{ object.nome }}** (Professor: {{ object.professor }})?</p>
+    
+    <form method="post">{% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <a href="{% url 'turmas:turma_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+    <!-- ... -->
+</div>
+{% endblock %}
