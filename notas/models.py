@@ -23,5 +23,4 @@ class Nota(models.Model):
         help_text="Nota deve estar entre 0 e 10"
     )
     data_lancamento = models.DateTimeField(auto_now_add=True)
-    
-    # ... restante do código
+

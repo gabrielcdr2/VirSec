@@ -20,6 +20,7 @@
                 <p>Gerenciamento Escolar</p>
             </div>
             <ul class="sidebar-nav">
+                <li><a href="{% url 'index' %}"><i class="bi bi-mortarboard"></i> Início</a></li>
                 <li><a href="{% url 'alunos:aluno_list' %}"><i class="bi bi-people-fill"></i> Alunos</a></li>
                 <li><a href="{% url 'turmas:turma_list' %}"><i class="bi bi-door-closed"></i> Turmas</a></li>
                 <li><a href="#boletins"><i class="bi bi-file-earmark-pdf"></i> Boletins</a></li>
@@ -57,7 +58,7 @@
                 <div class="action-card">
                     <i class="bi bi-person-plus-fill"></i>
                     <h3>Cadastrar Professores</h3>
-                    <p>Adicione novos professores.</p>
+                    <p>Adicione novos professores a unidade escolar.</p>
                     <a href="{% url 'professores:professor_cadastrar' %}">
                         <button class="btn btn-primary">
                             <i class="bi bi-plus-circle"></i> Cadastrar

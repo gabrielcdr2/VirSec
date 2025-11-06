@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
-=======
 from django.views.generic import CreateView, ListView
->>>>>>> ebd6f54 (sei la)
 from django.urls import reverse_lazy
 from .models import Professor
 
@@ -12,7 +9,6 @@ class ProfessorCreateView(CreateView):
     template_name = 'professor_cadastrar.html'
     success_url = reverse_lazy('index')
 
-<<<<<<< HEAD
 class ProfessorListView(ListView):
     model = Professor
     template_name = 'professor_list.html'
@@ -43,7 +39,6 @@ class ProfessorDeleteView(DeleteView):
     model = Professor
     template_name = 'professor_confirm_delete.html'
     success_url = reverse_lazy('professores:professor_list')
-=======
 
 class ProfessorListView(ListView):
     model = Professor
@@ -54,4 +49,4 @@ class ProfessorListView(ListView):
     def get_queryset(self):
         
         return Professor.objects.all().order_by('nome')
->>>>>>> ebd6f54 (sei la)
+

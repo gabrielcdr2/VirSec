@@ -12,6 +12,7 @@ urlpatterns = [
     path('turmas/', include('turmas.urls')),
     path('professores/', include('professores.urls')),
     path('professores/lista/', include('professores.urls')),
+    path('notas/', include('notas.urls')),
 ]
 
 if settings.DEBUG:
