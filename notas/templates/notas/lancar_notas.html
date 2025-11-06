@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Lançamento de Notas</h1>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="card mb-4">
+    <div class="card-header">
+        Selecione a Disciplina
+    </div>
+    <div class="card-body">
+        <form method="GET" class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="disciplina_select" class="col-form-label">Disciplina:</label>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="disciplina_select" name="disciplina_selecionada" onchange="this.form.submit()">
+                    <option value="">-- Selecione uma Disciplina --</option>
+                    {% for disciplina in disciplinas %}
+                        <option value="{{ disciplina.pk }}" {% if disciplina.pk|stringformat:"s" == disciplina_selecionada_id %}selected{% endif %}>
+                            {{ disciplina.nome }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if disciplina_selecionada_id %}
+    <div class="card">
+        <div class="card-header">
+            Lançar Notas para a Disciplina Selecionada
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="disciplina_selecionada" value="{{ disciplina_selecionada_id }}">
+                
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>Nota (0-10)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for aluno in alunos %}
+                        <tr>
+                            <td>{{ aluno.nome }}</td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    step="0.1" 
+                                    min="0" 
+                                    max="10" 
+                                    class="form-control" 
+                                    name="nota_aluno_{{ aluno.pk }}" 
+                                    value="{{ notas_existentes|get_item:aluno.pk|default_if_none:'' }}"
+                                    placeholder="Ex: 8.5"
+                                >
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2">Nenhum aluno cadastrado.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <button type="submit" class="btn btn-primary mt-3">Salvar Notas</button>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <div class="alert alert-info" role="alert">
+        Selecione uma disciplina acima para começar a lançar as notas.
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+{# Adiciona um filtro customizado para pegar itens do dicionário no template #}
+{% load custom_filters %}
+{% endblock %}

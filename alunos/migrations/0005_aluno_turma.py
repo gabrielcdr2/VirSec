@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('alunos', '0004_aluno_cpf'),
-        ('turmas', '0003_alter_turma_professor_delete_professor'),
+        ('turmas', '0003_disciplina'),
     ]
 
     operations = [

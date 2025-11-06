@@ -1,3 +1,4 @@
+
 from django.urls import path
 from .views import ProfessorCreateView, ProfessorListView, ProfessorUpdateView, ProfessorDeleteView
 
